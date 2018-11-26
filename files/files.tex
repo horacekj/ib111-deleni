@@ -30,11 +30,15 @@ Uzavření souboru.\\
 
 \texttt{f.readline()}\\
 
-Načtení řádku ze souboru bez použití \texttt{with}.\\
+Načtení jednoho řádku ze souboru bez použití \texttt{with}.\\
 
 \texttt{f.readlines()}\\
 
 Načtení všech řádků ze souboru bez použití \texttt{with}.\\
+
+\texttt{f.read()}\\
+
+Načtení celého obsahu souboru bez použití \texttt{with}.\\
 
 \texttt{f.write(text)}\\
 
@@ -45,14 +49,29 @@ with open('text.txt') as f:
     lines = f.readlines()
 \end{verbatim}
 
-Bezpečná práce se souborem (soubor se sám uzavře po dokončení operace).
+Bezpečné čtení ze souboru (soubor se sám uzavře po dokončení operace).
 
 \begin{verbatim}
 with open('abc', 'w') as f:
     f.write('ahoj')
 \end{verbatim}
 
-Bezpečná práce se souborem (soubor se sám uzavře po dokončení operace).\\
+Bezpečný zápis do souboru (soubor se sám uzavře po dokončení operace).\\
+
+\begin{verbatim}
+with open('abc') as f:
+    for line in f:
+       print(line)
+\end{verbatim}
+
+Efektivní iterace přes řádky souboru.
+
+\begin{verbatim}
+with open('abc') as f:
+    l = f.read().split('\n')
+\end{verbatim}
+
+Načítání souboru, které nefunguje na OS Windows.
 
 \rule{\linewidth}{1pt}
 
