@@ -4,7 +4,7 @@ TARGET = files
 all: $(TARGET).pdf
 
 $(TARGET).pdf: $(TARGET).tex
-	pdflatex $^
+	texfot pdflatex $^
 
 clean:
 	rm -rf $(TARGET).aux $(TARGET).log $(TARGET).out
