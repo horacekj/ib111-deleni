@@ -5,8 +5,8 @@
 \usepackage{lmodern}
 \usepackage{multicol}
 \usepackage{listings}
-\textwidth 19cm \textheight 25.6cm
-\topmargin -3cm
+\textwidth 19cm \textheight 26.5cm
+\topmargin -3.5cm
 \oddsidemargin -1.5cm
 \begin{document}
 \pagestyle{empty}
@@ -42,9 +42,8 @@ extendedchars=true,
 escapeinside={//+}{+//},
 }
 
-%\setlength\parindent{0pt}
-%\setlength{\columnsep}{60pt}
-%\begin{multicols}{2}
+\setlength\parindent{0pt}
+\setlength{\columnsep}{60pt}
 
 \Large
 
@@ -72,7 +71,7 @@ network.listen()
 q = collections.deque([crib])
 visited = [crib]
 
-while len(q) > 0:
+while q:
   point = q.popleft()
   q.send(news)
 
@@ -97,7 +96,7 @@ if time == night:
 
 % Bile Vanoce
 \begin{lstlisting}
-x = Date(24,12,2017)
+x = Date(24,12,2019)
 x.color = '#ffffff'
 self.dream_of(x)
 \end{lstlisting}
@@ -149,46 +148,25 @@ if len(kings) == 3:
         k2.wish('Happy new year.')
 \end{lstlisting}
 
-% Stedrej vecer nastal
-%\begin{lstlisting}
-%@subscribe(on=christmas_day and night)
-%def event_handler(self):
-%  self.parent.wakeup()
-%  self.parent.give_carol()
-%\end{lstlisting}
-
-%\begin{lstlisting}
-%@subscribe(on=christmas_day and night)
-%def event_handler(self):
-%  self.parent.wakeup()
-%  self.parent.give_carol()
-%\end{lstlisting}
-
 % Chtic aby spal
 \begin{lstlisting}
-def putToSleep(self, person, method=None, *args):
+def put_to_sleep(self, person, method=None, *args):
   if method:
-    if args:
-      method(self, person, *args)
-    else:
-      method(self, person)
+    method(self, person, *args)
   self.lay(person, bed)
 
-mother.putToSleep(mother.getChild(), method=lambda self,
-                  other: self.sing(about=nature, to=other))
+mother.put_to_sleep(mother.get_child(),
+                    method=lambda self, other: self.sing(about=nature, to=other))
 \end{lstlisting}
 
 \begin{lstlisting}
-def putToSleep(self, person, method=None, *args):
+def put_to_sleep(self, person, method=None, *args):
   if method:
-    if args:
-      method(self, person, *args)
-    else:
-      method(self, person)
+    method(self, person)
   self.lay(person, bed)
 
-mother.putToSleep(mother.getChild(), method=lambda self,
-                  other: self.sing(about=nature, to=other))
+mother.put_to_sleep(mother.get_child(),
+                    method=lambda self, other: self.sing(about=nature, to=other))
 \end{lstlisting}
 
 
@@ -201,7 +179,7 @@ mother.putToSleep(mother.getChild(), method=lambda self,
 [[[b.jingle()]*2 for b in w.bells] for w in way]
 \end{lstlisting}
 
-\rule{\linewidth}{1pt}\\
+\rule{\linewidth}{1pt}
 
 \begin{lstlisting}
 [[[b.jingle()]*2 for b in w.bells] for w in way]
